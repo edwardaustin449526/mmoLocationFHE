@@ -1,0 +1,421 @@
+/* App.css */
+.app-container.hud-theme {
+  background: #0a0a0a;
+  color: #00ff41;
+  font-family: 'Courier New', monospace;
+  min-height: 100vh;
+}
+
+/* HUD Header */
+.app-header {
+  background: rgba(0, 0, 0, 0.9);
+  border-bottom: 2px solid #00ff41;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: #00ff41;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radar-icon {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  position: relative;
+}
+
+.radar-icon::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #000;
+  top: 50%;
+  left: 0;
+}
+
+.radar-icon::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background: #000;
+  left: 50%;
+  top: 0;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #ff0080;
+}
+
+.header-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* HUD Buttons */
+.hud-button {
+  background: rgba(0, 255, 65, 0.1);
+  border: 1px solid #00ff41;
+  color: #00ff41;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  transition: all 0.3s;
+}
+
+.hud-button:hover {
+  background: rgba(0, 255, 65, 0.2);
+  box-shadow: 0 0 10px #00ff41;
+}
+
+.hud-button.primary {
+  background: rgba(0, 255, 65, 0.3);
+}
+
+.hud-button.small {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+}
+
+.hud-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.visibility-btn.private {
+  background: rgba(255, 0, 128, 0.1);
+  border-color: #ff0080;
+}
+
+.visibility-btn.public {
+  background: rgba(0, 255, 65, 0.3);
+}
+
+/* Main Content */
+.main-content {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* HUD Cards */
+.hud-card {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #00ff41;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.hud-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00ff41, transparent);
+}
+
+/* Game Controls */
+.control-panel {
+  grid-row: span 2;
+}
+
+.direction-pad {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.horizontal-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.direction-pad button {
+  width: 60px;
+  height: 60px;
+  font-size: 1.5rem;
+}
+
+.position-display {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background: rgba(0, 255, 65, 0.1);
+  border: 1px solid #00ff41;
+}
+
+/* Game Map */
+.game-map-container {
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-grid {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(0, 255, 65, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 65, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.map-zone {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+/* Player Markers */
+.player-marker {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.player-marker.current-player {
+  background: rgba(0, 255, 65, 0.3);
+  border: 2px solid #00ff41;
+  z-index: 10;
+}
+
+.player-marker.public {
+  background: rgba(0, 100, 255, 0.3);
+  border: 2px solid #0064ff;
+}
+
+.player-marker.private {
+  background: rgba(255, 165, 0, 0.3);
+  border: 2px solid #ffa500;
+  filter: blur(2px);
+}
+
+.player-marker.party-member {
+  background: rgba(255, 0, 128, 0.3);
+  border: 2px solid #ff0080;
+}
+
+.player-marker:hover {
+  transform: scale(1.2);
+  z-index: 100;
+}
+
+/* Map Legend */
+.map-legend {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid;
+}
+
+.legend-color.current-player { background: rgba(0, 255, 65, 0.3); border-color: #00ff41; }
+.legend-color.public { background: rgba(0, 100, 255, 0.3); border-color: #0064ff; }
+.legend-color.private { background: rgba(255, 165, 0, 0.3); border-color: #ffa500; }
+.legend-color.party-member { background: rgba(255, 0, 128, 0.3); border-color: #ff0080; }
+
+/* Players List */
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.player-card {
+  background: rgba(0, 255, 65, 0.05);
+  border: 1px solid #00ff41;
+  padding: 1rem;
+}
+
+.player-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.visibility-badge {
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}
+
+.visibility-badge.private { background: rgba(255, 165, 0, 0.3); color: #ffa500; }
+.visibility-badge.public { background: rgba(0, 100, 255, 0.3); color: #0064ff; }
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.create-modal, .player-detail-modal {
+  background: #0a0a0a;
+  border: 2px solid #00ff41;
+  padding: 2rem;
+  min-width: 400px;
+  max-width: 500px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #00ff41;
+  padding-bottom: 1rem;
+}
+
+.close-modal {
+  background: none;
+  border: none;
+  color: #00ff41;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Forms */
+.hud-input, .hud-select {
+  background: rgba(0, 255, 65, 0.1);
+  border: 1px solid #00ff41;
+  color: #00ff41;
+  padding: 0.5rem;
+  width: 100%;
+  font-family: 'Courier New', monospace;
+}
+
+.hud-input::placeholder {
+  color: rgba(0, 255, 65, 0.5);
+}
+
+/* Loading Screen */
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #0a0a0a;
+}
+
+.hud-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #00ff41;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Transaction Modal */
+.transaction-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+}
+
+.transaction-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+}
+
+.transaction-icon.success { color: #00ff41; }
+.transaction-icon.error { color: #ff0080; }
+
+/* Footer */
+.app-footer {
+  background: rgba(0, 0, 0, 0.9);
+  border-top: 1px solid #00ff41;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+.fhe-badge {
+  background: rgba(0, 255, 65, 0.1);
+  border: 1px solid #00ff41;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+  
+  .header-actions {
+    flex-direction: column;
+  }
+}
