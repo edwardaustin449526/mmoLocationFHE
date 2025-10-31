@@ -1,4 +1,4 @@
-```markdown
+
 # Hidden Realms: An FHE-based MMORPG Experience 🌍🔒
 
 Hidden Realms is an innovative MMORPG where players' locations on the map are encrypted by default using **Zama's Fully Homomorphic Encryption technology**. This unique design enables a seamless and secure gaming experience, allowing players to explore vast realms while keeping their exact positions private, ensuring a thrilling sense of adventure without compromising privacy.
